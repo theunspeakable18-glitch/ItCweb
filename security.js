@@ -122,7 +122,10 @@ const Security = (() => {
     const { data, error } = await c.auth.signUp({
       email: mail,
       password,
-      options: { data: { username: name } },
+      options: {
+        data: { username: name },
+        emailRedirectTo: new URL("Login.html", location.href).href,
+      },
     });
     if (error) throw new Error(friendly(error));
 
