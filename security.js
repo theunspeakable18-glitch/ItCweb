@@ -209,6 +209,11 @@ const Security = (() => {
     location.replace(HOME_PAGE);
   }
 
+     // Send the visitor to the log in page
+  function redirectToLogin() {
+    location.replace(LOGIN_PAGE);
+  }
+
   // ---------- tiny UI helper ----------
   function showMessage(form, text, isError = true) {
     let el = form.querySelector(".form__message");
@@ -231,3 +236,5 @@ const Security = (() => {
     redirectIfLoggedIn, createSession, redirectAfterLogin, showMessage,
   };
 })();
+
+    redirectIfLoggedIn, createSession, redirectAfterLogin, redirectToLogin, showMessage,
