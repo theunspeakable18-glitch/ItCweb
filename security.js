@@ -66,7 +66,7 @@ const Security = (() => {
         }
 
         client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-          auth: { storage, persistSession: true, autoRefreshToken: true, detectSessionInUrl: false },
+          auth: { storage, persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
         });
         return client;
       })().catch((e) => {
@@ -125,7 +125,7 @@ const Security = (() => {
       password,
       options: {
         data: { username: name },
-        emailRedirectTo: new URL("Login.html", location.href).href,
+        emailRedirectTo: new URL("home.html", location.href).href,
       },
     });
         if (error) {
