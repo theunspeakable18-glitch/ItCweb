@@ -13,6 +13,14 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
   btn.disabled = true;
   try {
     const result = await Security.register(username, email, password, remember);
+
+    // This email already has an account: send them to log in
+    if (result.exists) {
+      Security.showMessage(form, "That email already has an account. Taking you to log in...", false);
+      setTimeout(() => Security.redirectToLogin(), 1500);
+      return;
+    }
+
     if (result.needsConfirm) {
       Security.showMessage(form, "Account created! Check your email to confirm it, then log in.", false);
       btn.disabled = false;
