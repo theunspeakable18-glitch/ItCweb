@@ -7,6 +7,7 @@
 const Security = (() => {
   const GUEST_PAGE = "index.html";
   const HOME_PAGE = "home.html";
+  const LOGIN_PAGE = "Login.html";
   const RETURN_KEY = "gg_return";
   const REMEMBER_KEY = "gg_remember";
   const SUPABASE_CDN = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
@@ -127,10 +128,21 @@ const Security = (() => {
         emailRedirectTo: new URL("Login.html", location.href).href,
       },
     });
-    if (error) throw new Error(friendly(error));
+        if (error) {
+      // Some Supabase settings answer "already registered" with an error
+      if (/already registered|already been registered/i.test(error.message || "")) {
+        return { username: name, exists: true };
+      }
+      throw new Error(friendly(error));
+    }
+
+    // Other settings answer with a fake user that has no identities
+    if (data.user && Array.isArray(data.user.identities) && data.user.identities.length === 0) {
+      return { username: name, exists: true };
+    }
 
     // No session yet means Supabase is waiting for the person to confirm their email
-    return { username: name, needsConfirm: !data.session };
+    return { username: name, needsConfirm: !data.session, exists: false };
   }
 
   async function login(email, password, remember) {
