@@ -5,7 +5,9 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector("button[type=submit]");
-  const email = document.getElementById("email").value;
+  // the email box is id="email" (older pages used id="username")
+  const emailInput = document.getElementById("email") || document.getElementById("username");
+  const email = emailInput.value;
   const password = document.getElementById("password").value;
   const remember = document.getElementById("rememberMe").checked;
 
