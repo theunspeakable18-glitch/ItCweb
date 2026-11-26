@@ -56,12 +56,13 @@ async function refreshBookings() {
         const session = await Security.getSession();
         if (!session) throw new Error('not logged in');
 
+        // My own bookings (the database now only returns rows that belong to me)
         const { data, error } = await Security.client
             .from('bookings')
             .select('id, user_id, game, skill, trainer_id, date, hour');
         if (error) throw error;
 
-        bookings = data.map(r => ({
+        const rows = data.map(r => ({
             id: r.id,
             game: r.game,
             skill: r.skill,
@@ -70,6 +71,19 @@ async function refreshBookings() {
             hour: r.hour,
             mine: r.user_id === session.id
         }));
+
+        // Slots other people took: only the coach, date and hour (no names, no user ids)
+        const { data: taken, error: takenError } = await Security.client.rpc('taken_slots');
+        if (takenError) console.error('Could not load taken slots:', takenError);
+
+        (taken || []).forEach(t => {
+            const known = rows.some(r => r.trainer === t.trainer_id && r.date === t.date && r.hour === t.hour);
+            if (!known) {
+                rows.push({ id: null, game: null, skill: null, trainer: t.trainer_id, date: t.date, hour: t.hour, mine: false });
+            }
+        });
+
+        bookings = rows;
     } catch (e) {
         if (e.message !== 'not logged in') console.error('Could not load bookings:', e);
         bookings = [];
