@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="istyles.css">
+    <link rel="stylesheet" href="schedule-page-styles.css">
+</head>
+<body>
+
+    <script src="app.js"></script>
+    <script src="security.js"></script>
+    <script src="home.js" defer></script>
+    <script src="booking.js" defer></script>
+
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a id="navbar__logo">GitGud</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="home.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="schedule.html" class="navbar__links">Schedule</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about_us.html" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="account.html" class="navbar__links">Account</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard -->
+    <section class="dash">
+        <div class="dash__container">
+
+            <!-- Middle -->
+            <main class="dash__main">
+
+                <div class="dash__banner">
+                    <div class="dash__banner-text">
+                        <h1>Welcome back, <span id="userName">player</span></h1>
+                        <p>Pick a game, choose a skill and book a session with a trainer.</p>
+                        <div class="dash__actions">
+                            <a href="#games" class="button1">Choose a game</a>
+                        </div>
+                    </div>
+                    <img src="images/pic.svg" alt="pic" class="dash__img">
+                </div>
+
+                <div class="dash__stats">
+                    <div class="dash__stat dash__card">
+                        <small>Sessions in the next 7 days</small>
+                        <b id="statCount">0</b>
+                    </div>
+                    <div class="dash__stat dash__card">
+                        <small>Next session</small>
+                        <b id="statNext">None yet</b>
+                        <small id="statNextInfo"></small>
+                    </div>
+                </div>
+
+                <h2 class="dash__title" id="games">Games</h2>
+                <div class="dash__games">
+                    <a href="val.html" class="dash__game dash__card">
+                        <video autoplay muted loop playsinline class="dash__video">
+                            <source src="Video/Valorant.mp4" type="video/mp4">
+                        </video>
+                        <div class="dash__game-body">
+                            <b>Valorant</b>
+                            <small>Aim, Movement, Gamesense</small>
+                        </div>
+                    </a>
+                    <a href="lol.html" class="dash__game dash__card">
+                        <video autoplay muted loop playsinline class="dash__video">
+                            <source src="Video/League of Legends.mp4" type="video/mp4">
+                        </video>
+                        <div class="dash__game-body">
+                            <b>League of Legends</b>
+                            <small>Laning, Macro, Teamfights</small>
+                        </div>
+                    </a>
+                    <a href="cs2.html" class="dash__game dash__card">
+                        <video autoplay muted loop playsinline class="dash__video">
+                            <source src="Video/CS2.mp4" type="video/mp4">
+                        </video>
+                        <div class="dash__game-body">
+                            <b>Counter Strike 2</b>
+                            <small>Aim, Movement, Gamesense</small>
+                        </div>
+                    </a>
+                </div>
+
+                <h2 class="dash__title">Recent transactions</h2>
+                <div class="dash__card">
+                    <p class="dash__empty" id="txEmpty">No transactions yet. They show up here after you book a session.</p>
+                    <div class="dash__tx" id="txList"></div>
+                </div>
+
+            </main>
+
+            <!-- Right: schedule (read only, click a session to open its game page) -->
+            <aside class="dash__right dash__card" id="schedule">
+                <h2 class="dash__title">Your schedule</h2>
+                <p class="dash__empty" id="schedEmpty">No sessions yet. Open a game and book one.</p>
+                <div class="dash__sessions" id="schedList"></div>
+                <a href="schedule.html" class="dash__more">Open full schedule</a>
+            </aside>
+
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="frth">
+        <div class="frth__container">
+            <div class="frth__content">
+
+                <!-- Left: brand + tagline -->
+                <div class="frth__brand">
+                    <a class="frth__logo">GitGud</a>
+                    <p class="frth__tagline">Train smarter, you piece of trash</p>
+                </div>
+
+                <!-- Middle: contact info -->
+                <ul class="frth__menu">
+                    <li class="frth__itms">gitgudemail@gmail.com</li>
+                    <li class="frth__itms">Quezon City, Metro Manila</li>
+                    <li class="frth__itms">+63 969 157 6832</li>
+                </ul>
+
+                <!-- Right: social icons -->
+                <ul class="frth__socials">
+                    <li><a href="#" class="frth__social"><img src="icons/facebook.png" alt="Facebook"></a></li>
+                    <li><a href="#" class="frth__social"><img src="icons/instagram.png" alt="Instagram"></a></li>
+                    <li><a href="#" class="frth__social"><img src="icons/twitter.png" alt="Twitter"></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="schedule.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League of Legends training</title>
+    <link rel="stylesheet" href="istyles.css">
+    <link rel="stylesheet" href="booking-confirm.css">
+</head>
+<body>
+
+    <script src="app.js"></script>
+    <script src="security.js"></script>
+    <script src="train.js" defer></script>
+    <script src="booking.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a id="navbar__logo">GitGud</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="home.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about_us.html" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="account.html" class="navbar__links">Account</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="itemselection">
+        <div class="is__container">
+            <ul class="is__menu">
+                <li class="active" data-tab-target="#lane">Laning</li>
+                <li data-tab-target="#macro">Macro</li>
+                <li data-tab-target="#fight">Teamfights</li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="lane" class="active" data-tab-content>
+                    <h1>Laning</h1>
+                    <p>The laning phase is where most games are quietly won or lost. Focus on last-hitting minions first, because gold and experience from farming matter more than early kills. Learn wave management: freezing the wave near your tower keeps you safe, while pushing it lets you recall or roam. Trade with your opponent when their key ability is on cooldown, and back off when your health or mana is low. Keep an eye on the minimap for the enemy jungler, and buy a control ward so you aren’t caught off guard. If you want to improve one thing at a time, start with your minion count at ten minutes.</p>
+                    <div class="booking" data-game="LoL" data-skill="Laning"></div>
+                </div>
+                <div id="macro" data-tab-content>
+                    <h1>Macro</h1>
+                    <p>Macro is what you do when you’re not fighting: where you go, when you go, and why. Check the minimap every few seconds, and ask yourself where the enemy team is before you commit to a plan. After winning a fight or a lane, turn the advantage into something permanent, like a tower, Dragon or Baron, instead of wandering back to base. Rotate with your wave pushed so you arrive at an objective with pressure. Ward the areas where enemies will approach, and recall at moments when you can afford the lost time. A good habit is to give every minute a goal: farm, vision, objective or reset.</p>
+                    <div class="booking" data-game="LoL" data-skill="Macro"></div>
+                </div>
+                <div id="fight" data-tab-content>
+                    <h1>Teamfights</h1>
+                    <p>Teamfights are decided by positioning and decisions more than raw mechanics. Know your role in the fight: a carry should stay safe and hit the closest target, while a tank should start fights and protect the team. Track key enemy cooldowns, like their ultimates and flash, and fight when they’re down. Don’t chase kills into the fog, because it often leaves your team outnumbered. Focus on the target your team can reach safely, and use your abilities when they’ll hit multiple enemies. After each fight, check what happened, because the winner is usually the team that played around its objectives and vision.</p>
+                    <div class="booking" data-game="LoL" data-skill="Teamfights"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

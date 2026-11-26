@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" href="istyles.css">
+</head>
+<body>
+
+    <script src="app.js"></script>
+    <script src="security.js"></script>
+    <script src="booking.js" defer></script>
+    <script src="account.js" defer></script>
+    <script>Security.requireLogin("home.html");</script>
+
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a id="navbar__logo">GitGud</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="home.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about_us.html" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="account.html" class="navbar__links">Account</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="acct">
+        <div class="acct__container">
+
+            <!-- Profile -->
+            <div class="acct__profile">
+                <div class="acct__avatar" id="acctAvatar">?</div>
+                <div class="acct__info">
+                    <h1 id="acctName">Player</h1>
+                    <p id="acctSince"></p>
+                    <p id="acctExpiry"></p>
+                </div>
+                <button class="acct__logout" id="acctLogout" type="button">Log out</button>
+            </div>
+
+            <!-- Stats -->
+            <div class="acct__stats">
+                <div class="acct__stat">
+                    <b id="statTotal">0</b>
+                    <span>Sessions booked</span>
+                </div>
+                <div class="acct__stat">
+                    <b id="statUpcoming">0</b>
+                    <span>Upcoming</span>
+                </div>
+                <div class="acct__stat">
+                    <b id="statDone">0</b>
+                    <span>Completed</span>
+                </div>
+            </div>
+
+            <!-- Sessions -->
+            <h2>Upcoming sessions</h2>
+            <ul class="acct__list" id="acctUpcoming"></ul>
+
+            <h2>Past sessions</h2>
+            <ul class="acct__list" id="acctPast"></ul>
+
+        </div>
+    </section>
+
+</body>
+</html>

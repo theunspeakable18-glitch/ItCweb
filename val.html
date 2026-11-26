@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant training</title>
+    <link rel="stylesheet" href="istyles.css">
+    <link rel="stylesheet" href="booking-confirm.css">
+</head>
+<body>
+
+    <script src="app.js"></script>
+    <script src="security.js"></script>
+    <script src="train.js" defer></script>
+    <script src="booking.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a id="navbar__logo">GitGud</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="home.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about_us.html" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="account.html" class="navbar__links">Account</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- First section -->
+    <section class="itemselection"> 
+        <div class="is__container">
+            <ul class="is__menu">
+
+                <li class="active" data-tab-target="#aim">Aim</li>
+                <li data-tab-target="#move">Movement</li>
+                <li data-tab-target="#gamsen">Gamesense</li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="aim" class="active" data-tab-content>
+                    <h1>Aim</h1>
+                    <p>Good aim in Valorant starts with crosshair placement, not fast flicks. Keep your crosshair at head height and aimed at the spots where an enemy is most likely to appear, so you only need small adjustments when you see someone. Use a lower sensitivity so you can control your movements precisely, and aim with your whole arm rather than just your wrist. Before you shoot, stop moving. Your shots are only accurate when you’re standing still or counter-strafing, which means tapping the opposite movement key to stop instantly. Then pick the right shooting style for the range: a single tap or short burst at long distance, and a full spray only up close. A good routine is to warm up in the Range or an aim trainer for 10 to 15 minutes, then focus on one thing at a time, such as headshot rate or counter-strafing, instead of trying to improve everything at once.</p>
+                    <div class="booking" data-game="Valorant" data-skill="Aim"></div>
+                </div>
+                <div id="move" data-tab-content>
+                    <h1>Movement</h1>
+                    <p>Movement in Valorant is about staying hard to hit while keeping your own shots accurate. Since you can’t shoot accurately while moving, the key skill is peeking: step out to see an enemy, stop, shoot, and step back. Strafing side to side while you peek makes you harder to hit, and counter-strafing lets you stop on the exact frame you want to shoot. Walk (hold Shift) when you don’t want to make noise, because running makes sounds that nearby enemies can hear. When you hold an angle, take one at a time instead of rushing out into several, and avoid jumping into fights unless you have a reason to. Jumping makes you very inaccurate, so it’s mostly useful for dodging shots in a pinch. As you improve, learn the movement abilities your agents have, like dashes and jumps, and think about when to use them.</p>
+                    <div class="booking" data-game="Valorant" data-skill="Movement"></div>
+                </div>
+                <div id="gamsen" data-tab-content>
+                    <h1>Gamesense</h1>
+                    <p>Game sense is your ability to make good decisions using the information you have, and it’s often what separates a good player from a great one. Start by tracking the basics: the round timer, how many enemies are alive, where the spike is, and what your team’s economy looks like. Listen for footsteps, abilities, and reloads, and watch the minimap and kill feed, because they tell you where enemies are and what they’re doing. From there, think about what the enemy is likely to do next. If you’ve seen two players go to one site, the rest of their team might be somewhere else. Position yourself for the situation, not just for where you feel comfortable, and avoid repeating the same plays so you’re harder to predict. Use your utility to gain information or take space instead of using it as soon as it’s ready, and communicate what you learn to your team with short, clear callouts. Reviewing your own replays is one of the best ways to build game sense, because you can see the mistakes you didn’t notice in the moment.</p>
+                    <div class="booking" data-game="Valorant" data-skill="Gamesense"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="istyles.css">
+    <link rel="stylesheet" href="schedule-page-styles.css">
+</head>
+<body>
+
+    <script src="app.js"></script>
+    <script src="security.js"></script>
+    <script src="booking.js" defer></script>
+    <script src="myschedule.js" defer></script>
+    <script>
+        // only logged-in users can see this page
+        if (window.Security && Security.requireLogin) {
+            Security.requireLogin("schedule.html");
+        }
+    </script>
+
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a id="navbar__logo">GitGud</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="home.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="schedule.html" class="navbar__links">Schedule</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about_us.html" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="account.html" class="navbar__links">Account</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Schedule page -->
+    <section class="dash">
+        <div class="plan__top">
+            <h1>My schedule</h1>
+            <p id="planTotal">Loading your sessions...</p>
+        </div>
+
+        <div class="plan__container">
+
+            <!-- Your week (myschedule.js builds the rows) -->
+            <div class="plan__week" id="weekList"></div>
+
+            <!-- Book a session -->
+            <aside class="plan__add dash__card">
+                <h2>Book a session</h2>
+                <p class="plan__note">Pick a game, choose a skill and book a trainer. Click a session in your week to open its game page.</p>
+                <ul class="dash__menu">
+                    <li><a href="val.html">Valorant</a></li>
+                    <li><a href="lol.html">League of Legends</a></li>
+                    <li><a href="cs2.html">Counter-Strike 2</a></li>
+                </ul>
+            </aside>
+
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="frth">
+        <div class="frth__container">
+            <div class="frth__content">
+
+                <!-- Left: brand + tagline -->
+                <div class="frth__brand">
+                    <a class="frth__logo">GitGud</a>
+                    <p class="frth__tagline">Train smarter, you piece of trash</p>
+                </div>
+
+                <!-- Middle: contact info -->
+                <ul class="frth__menu">
+                    <li class="frth__itms">gitgudemail@gmail.com</li>
+                    <li class="frth__itms">Quezon City, Metro Manila</li>
+                    <li class="frth__itms">+63 969 157 6832</li>
+                </ul>
+
+                <!-- Right: social icons -->
+                <ul class="frth__socials">
+                    <li><a href="#" class="frth__social"><img src="icons/facebook.png" alt="Facebook"></a></li>
+                    <li><a href="#" class="frth__social"><img src="icons/instagram.png" alt="Instagram"></a></li>
+                    <li><a href="#" class="frth__social"><img src="icons/twitter.png" alt="Twitter"></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

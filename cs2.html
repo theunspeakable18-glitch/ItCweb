@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter-Strike 2 training</title>
+    <link rel="stylesheet" href="istyles.css">
+    <link rel="stylesheet" href="booking-confirm.css">
+</head>
+<body>
+
+    <script src="app.js"></script>
+    <script src="security.js"></script>
+    <script src="train.js" defer></script>
+    <script src="booking.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a id="navbar__logo">GitGud</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="home.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about_us.html" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="account.html" class="navbar__links">Account</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="itemselection">
+        <div class="is__container">
+            <ul class="is__menu">
+                <li class="active" data-tab-target="#aim">Aim</li>
+                <li data-tab-target="#move">Movement</li>
+                <li data-tab-target="#gamsen">Gamesense</li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="aim" class="active" data-tab-content>
+                    <h1>Aim</h1>
+                    <p>Aim in Counter-Strike 2 is built on crosshair placement. Keep your crosshair at head height and pointed at the angles where enemies will appear, so you only make tiny corrections when you see someone. Learn the spray pattern of your main rifles and practice pulling down against it, but use short bursts at range instead of holding the trigger. Your shots are only accurate when you’re standing still, so stop with a counter-strafe before you fire. Warm up with a few minutes of deathmatch or an aim map before you queue, and focus on one habit at a time.</p>
+                    <div class="booking" data-game="CS2" data-skill="Aim"></div>
+                </div>
+                <div id="move" data-tab-content>
+                    <h1>Movement</h1>
+                    <p>Good movement in Counter-Strike 2 means stopping at the right moment. Counter-strafe by tapping the opposite movement key so you stop instantly and shoot accurately. Walk with Shift when you don’t want to be heard, and avoid running through areas where an enemy could be listening. Peek in a way that gives you information safely: a quick jiggle to bait a shot, a shoulder peek to check an angle, or a wide swing when you have the advantage. Clear angles one at a time instead of exposing yourself to several, and learn the standard jump spots on your favorite maps.</p>
+                    <div class="booking" data-game="CS2" data-skill="Movement"></div>
+                </div>
+                <div id="gamsen" data-tab-content>
+                    <h1>Gamesense</h1>
+                    <p>Gamesense in Counter-Strike 2 starts with the economy. Know when your team should buy, save or force, and avoid buying alone when everyone else is saving. Use your grenades with a purpose, like a smoke to block a lane, a flash for a teammate’s entry, or a molotov to clear a corner. Listen for footsteps and utility, and think about where the rest of the enemy team could be based on what you’ve seen. Pay attention to the bomb timer, take trades with your teammates, and mix up your positions so opponents can’t predict you. Reviewing your demos is one of the fastest ways to find the mistakes you miss live.</p>
+                    <div class="booking" data-game="CS2" data-skill="Gamesense"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
