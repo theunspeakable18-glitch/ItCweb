@@ -65,6 +65,7 @@ const Security = (() => {
           throw new Error(SETUP_HINT);
         }
 
+        // detectSessionInUrl: true lets the email confirmation link log the person in
         client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
           auth: { storage, persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
         });
@@ -108,35 +109,49 @@ const Security = (() => {
     return msg || "Something went wrong. Try again.";
   }
 
+  // Stop waiting after a while, so a page never freezes on "waiting" forever
+  function withTimeout(promise, ms) {
+    return Promise.race([
+      promise,
+      new Promise((resolve, reject) => setTimeout(
+        () => reject(new Error("The server did not answer. Check your internet connection and that your Supabase project is not paused.")),
+        ms
+      )),
+    ]);
+  }
+
   const nameOf = (user) => (user.user_metadata && user.user_metadata.username) || user.email;
 
   // ---------- public API ----------
-  // Returns { username, needsConfirm }
+  // Returns { username, needsConfirm, exists }
+  // exists is true when that email already has an account
   async function register(username, email, password, remember) {
     const name = (username || "").trim();
     const mail = (email || "").trim();
     const problem = validateUsername(name) || validateEmail(mail) || validatePassword(password || "");
     if (problem) throw new Error(problem);
 
-    const c = await getClient();
+    const c = await withTimeout(getClient(), 15000);
     localStorage.setItem(REMEMBER_KEY, remember ? "1" : "0");
-    const { data, error } = await c.auth.signUp({
+    const { data, error } = await withTimeout(c.auth.signUp({
       email: mail,
       password,
       options: {
         data: { username: name },
-        emailRedirectTo: new URL("home.html", location.href).href,
+        // after confirming, the email link opens the home page
+        emailRedirectTo: new URL(HOME_PAGE, location.href).href,
       },
-    });
-        if (error) {
-      // Some Supabase settings answer "already registered" with an error
+    }), 15000);
+
+    if (error) {
+      // some Supabase settings answer "already registered" with an error
       if (/already registered|already been registered/i.test(error.message || "")) {
         return { username: name, exists: true };
       }
       throw new Error(friendly(error));
     }
 
-    // Other settings answer with a fake user that has no identities
+    // other settings answer with a fake user that has no identities
     if (data.user && Array.isArray(data.user.identities) && data.user.identities.length === 0) {
       return { username: name, exists: true };
     }
@@ -146,12 +161,12 @@ const Security = (() => {
   }
 
   async function login(email, password, remember) {
-    const c = await getClient();
+    const c = await withTimeout(getClient(), 15000);
     localStorage.setItem(REMEMBER_KEY, remember ? "1" : "0");
-    const { data, error } = await c.auth.signInWithPassword({
+    const { data, error } = await withTimeout(c.auth.signInWithPassword({
       email: (email || "").trim(),
       password,
-    });
+    }), 15000);
     if (error) throw new Error(friendly(error));
     return nameOf(data.user);
   }
@@ -209,7 +224,7 @@ const Security = (() => {
     location.replace(HOME_PAGE);
   }
 
-     // Send the visitor to the log in page
+  // Send the visitor to the log in page
   function redirectToLogin() {
     location.replace(LOGIN_PAGE);
   }
@@ -233,8 +248,6 @@ const Security = (() => {
     // The database client. It exists once any Security call has finished (booking.js relies on this).
     get client() { return client; },
     getClient, register, login, logout, getSession, requireLogin,
-    redirectIfLoggedIn, createSession, redirectAfterLogin, showMessage,
+    redirectIfLoggedIn, createSession, redirectAfterLogin, redirectToLogin, showMessage,
   };
 })();
-
-    redirectIfLoggedIn, createSession, redirectAfterLogin, redirectToLogin, showMessage,
