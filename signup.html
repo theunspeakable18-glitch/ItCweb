@@ -5,33 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="istyles.css">
+    <link rel="stylesheet" href="auth-styles.css">
 </head>
 <body>
     <div class="sign">
+        <a href="index.html" class="auth__back">&larr; Back to home</a>
         <div class="sign__container">
             <div class="sign__content">
                 <h1>GitGud</h1>
+                <p class="auth__tagline">Create your account and book your first coach.</p>
                 <div class="sign__box">
                     <form id="loginForm">
                         <h2>Sign Up</h2>
                         <div class="input__box">
-                            <input type="text" id="username" placeholder="Username" autocomplete="username" required>
+                            <input type="text" id="username" placeholder="Username" required maxlength="20" autocomplete="username">
                         </div>
+                        <p class="auth__hint" id="usernameHint">3-20 letters, numbers or underscores</p>
 
                         <div class="input__box">
-                            <input type="email" id="email" placeholder="Email" autocomplete="email" required>
+                            <input type="email" id="email" placeholder="Email" required autocomplete="email">
                         </div>
 
-                        <div class="input__box">
-                            <input type="password" id="password" placeholder="Password" autocomplete="new-password" required>
+                        <div class="input__box input__box--pw">
+                            <input type="password" id="password" class="auth__pw" placeholder="Password" required autocomplete="new-password">
+                            <button type="button" class="auth__eye" data-target="password" aria-label="Show password">Show</button>
                         </div>
+                        <p class="auth__caps" hidden>Caps Lock is on</p>
+                        <div class="auth__meter"><div class="auth__bar" id="pwBar"></div></div>
+                        <p class="auth__strength" id="pwStrength">Enter a password</p>
+                        <ul class="auth__rules" id="pwRules">
+                            <li data-rule="length">At least 8 characters</li>
+                            <li data-rule="lower">A lowercase letter</li>
+                            <li data-rule="upper">An uppercase letter</li>
+                            <li data-rule="number">A number</li>
+                        </ul>
+
+                        <div class="input__box input__box--pw">
+                            <input type="password" id="confirmPassword" class="auth__pw" placeholder="Confirm password" required autocomplete="new-password">
+                            <button type="button" class="auth__eye" data-target="confirmPassword" aria-label="Show password">Show</button>
+                        </div>
+                        <p class="auth__hint" id="matchHint"></p>
 
                         <div class="remember-forgot">
-                            <label><input type="checkbox" id="rememberMe"> Remember Me</label>
-                            <a href="#">Forgot Password</a>
+                            <label title="Stay logged in on this device"><input type="checkbox" id="rememberMe"> Remember Me</label>
                         </div>
 
-                        <button type="submit" class="sign__btn">Sign Up</button>
+                        <button type="submit" class="sign__btn" id="submitBtn">Sign Up</button>
 
                         <div class="register-link">
                             <p>already have an account? <a href="Login.html">Log in</a></p>
@@ -42,10 +61,9 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="config.js"></script>
     <script src="security.js"></script>
+    <script src="auth-ui.js"></script>
     <script src="signup.js"></script>
-    
+
 </body>
 </html>

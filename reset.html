@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset password</title>
+    <link rel="stylesheet" href="istyles.css">
+    <link rel="stylesheet" href="auth-styles.css">
+</head>
+<body>
+    <div class="sign">
+        <a href="Login.html" class="auth__back">&larr; Back to log in</a>
+        <div class="sign__container">
+            <div class="sign__content">
+                <h1>GitGud</h1>
+                <p class="auth__tagline">Choose a new password.</p>
+                <div class="sign__box">
+                    <form id="resetForm">
+                        <h2>New password</h2>
+
+                        <div class="input__box input__box--pw">
+                            <input type="password" id="password" class="auth__pw" placeholder="New password" required autocomplete="new-password">
+                            <button type="button" class="auth__eye" data-target="password" aria-label="Show password">Show</button>
+                        </div>
+                        <p class="auth__caps" hidden>Caps Lock is on</p>
+                        <div class="auth__meter"><div class="auth__bar" id="pwBar"></div></div>
+                        <p class="auth__strength" id="pwStrength">Enter a password</p>
+                        <ul class="auth__rules" id="pwRules">
+                            <li data-rule="length">At least 8 characters</li>
+                            <li data-rule="lower">A lowercase letter</li>
+                            <li data-rule="upper">An uppercase letter</li>
+                            <li data-rule="number">A number</li>
+                        </ul>
+
+                        <div class="input__box input__box--pw">
+                            <input type="password" id="confirmPassword" class="auth__pw" placeholder="Confirm new password" required autocomplete="new-password">
+                            <button type="button" class="auth__eye" data-target="confirmPassword" aria-label="Show password">Show</button>
+                        </div>
+                        <p class="auth__hint" id="matchHint"></p>
+
+                        <button type="submit" class="sign__btn" id="submitBtn">Save new password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="security.js"></script>
+    <script src="auth-ui.js"></script>
+    <script src="reset.js"></script>
+
+</body>
+</html>

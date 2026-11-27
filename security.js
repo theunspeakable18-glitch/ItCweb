@@ -160,6 +160,29 @@ const Security = (() => {
     return { username: name, needsConfirm: !data.session, exists: false };
   }
 
+  // Sends a "reset your password" email. The link in it opens reset.html.
+  async function sendPasswordReset(email) {
+    const mail = (email || "").trim();
+    const problem = validateEmail(mail);
+    if (problem) throw new Error(problem);
+
+    const c = await withTimeout(getClient(), 15000);
+    const { error } = await withTimeout(c.auth.resetPasswordForEmail(mail, {
+      redirectTo: new URL("reset.html", location.href).href,
+    }), 15000);
+    if (error) throw new Error(friendly(error));
+  }
+
+  // Saves a new password. Only works after the person opened the link from the reset email.
+  async function updatePassword(password) {
+    const problem = validatePassword(password || "");
+    if (problem) throw new Error(problem);
+
+    const c = await withTimeout(getClient(), 15000);
+    const { error } = await withTimeout(c.auth.updateUser({ password }), 15000);
+    if (error) throw new Error(friendly(error));
+  }
+
   async function login(email, password, remember) {
     const c = await withTimeout(getClient(), 15000);
     localStorage.setItem(REMEMBER_KEY, remember ? "1" : "0");
@@ -247,7 +270,7 @@ const Security = (() => {
   return {
     // The database client. It exists once any Security call has finished (booking.js relies on this).
     get client() { return client; },
-    getClient, register, login, logout, getSession, requireLogin,
+    getClient, register, login, sendPasswordReset, updatePassword, logout, getSession, requireLogin,
     redirectIfLoggedIn, createSession, redirectAfterLogin, redirectToLogin, showMessage,
   };
 })();
