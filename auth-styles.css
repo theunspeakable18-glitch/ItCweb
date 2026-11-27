@@ -36,6 +36,26 @@
     color: #b9b9b9;
 }
 
+/* Autofill: keep the red pill look instead of the browser's light blue box */
+.input__box input:-webkit-autofill,
+.input__box input:-webkit-autofill:hover,
+.input__box input:-webkit-autofill:focus,
+.input__box input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #c32323 inset;
+    box-shadow: 0 0 0 1000px #c32323 inset;
+    -webkit-text-fill-color: #ffffff;
+    caret-color: #ffffff;
+    border-radius: 40px;
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+/* same idea for Firefox */
+.input__box input:autofill {
+    box-shadow: 0 0 0 1000px #c32323 inset;
+    -webkit-text-fill-color: #ffffff;
+    color: #ffffff;
+}
+
 /* Show / Hide button inside the password box */
 .input__box--pw {
     position: relative;
