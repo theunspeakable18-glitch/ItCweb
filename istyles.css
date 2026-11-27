@@ -320,45 +320,7 @@ textarea,
     padding: 10px 20px;
 }
 
-@media screen and (max-width: 768px) {
-    
-    .main__container{
-        display: grid;
-        grid-template-columns: auto;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin: 0 auto;
-        height: 90vh;
-    }
-
-    .main__content {
-        text-align: center;
-        margin-bottom: 4rem;
-    }
-
-    .main__content h1 {
-        font-size: 3rem;
-        margin-top: 2.5rem;
-    }
-
-    .main__content h2 {
-        font-size: 3rem;
-    }
-
-    .main__content p {
-        font-size: 1.5rem;
-        margin-top: 1rem;
-    }
-
-    #main__img {
-        height: 55%;
-        width: 55%;
-        margin-left: 100px;
-    }
-}
-
-@media screen and (max-width: 480px) {
+@media (max-width: 480px) {
 
     .main__content h1 {
         font-size: 2rem;
@@ -372,6 +334,85 @@ textarea,
     .main__content p {
         font-size: 2rem;
         margin-top: 1.5rem;
+    }
+
+    .auth__back {
+        top: 14px;
+        left: 16px;
+    }
+
+    .main__content h1,
+    .main__content h2 {
+        font-size: 2rem;
+    }
+
+    .main__content p {
+        font-size: 1.1rem;
+    }
+
+    .sec__content h1 {
+        font-size: 2rem;
+    }
+
+    .sec__box {
+        height: 280px;
+    }
+
+    .third__content h1 {
+        font-size: 1.7rem;
+    }
+
+    .sign__content h1 {
+        font-size: 2.6rem;
+    }
+
+    .about h1 {
+        font-size: 2rem;
+    }
+
+    .sched__tab {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+
+    .sched__box {
+        padding: 8px 16px 20px;
+    }
+
+    .dash__banner h1 {
+        font-size: 1.6rem;
+    }
+
+    .dash__stats {
+        grid-template-columns: 1fr;
+    }
+
+    .confirm__box {
+        padding: 18px;
+    }
+
+    .confirm__actions button {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .auth__hint,
+    .auth__caps,
+    .auth__strength,
+    .auth__rules {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .auth__meter {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .auth__homebtn {
+        width: calc(100% - 20px);
+        margin: 6px 10px 0;
+        padding: 14px 10px;
     }
 }
 
@@ -1865,37 +1906,40 @@ html {
     .acct__list li {
         flex-wrap: wrap;
     }
-}
 
-/* ---------- Small phones ---------- */
-@media (max-width: 480px) {
-    .main__content h1,
+    .main__container{
+        display: grid;
+        grid-template-columns: auto;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0 auto;
+        height: 90vh;
+    }
+
+    .main__content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .main__content h1 {
+        font-size: 3rem;
+        margin-top: 2.5rem;
+    }
+
     .main__content h2 {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 
     .main__content p {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
+        margin-top: 1rem;
     }
 
-    .sec__content h1 {
-        font-size: 2rem;
-    }
-
-    .sec__box {
-        height: 280px;
-    }
-
-    .third__content h1 {
-        font-size: 1.7rem;
-    }
-
-    .sign__content h1 {
-        font-size: 2.6rem;
-    }
-
-    .about h1 {
-        font-size: 2rem;
+    #main__img {
+        height: 55%;
+        width: 55%;
+        margin-left: 100px;
     }
 }
 
@@ -1971,17 +2015,6 @@ html {
 .sched__day:focus-visible {
     outline: 2px solid #ff0844;
     outline-offset: 2px;
-}
-
-@media (max-width: 480px) {
-    .sched__tab {
-        padding: 10px 14px;
-        font-size: 0.9rem;
-    }
-
-    .sched__box {
-        padding: 8px 16px 20px;
-    }
 }
 
 /* ==========================================================================
@@ -2307,16 +2340,6 @@ html {
     }
 }
 
-@media (max-width: 480px) {
-    .dash__banner h1 {
-        font-size: 1.6rem;
-    }
-
-    .dash__stats {
-        grid-template-columns: 1fr;
-    }
-}
-
 /* ==========================================================================
    SCHEDULE PAGE
    Save this file next to your pages. schedule.html and home.html link to it,
@@ -2597,17 +2620,6 @@ html {
     border-color: #555555;
 }
 
-@media (max-width: 480px) {
-    .confirm__box {
-        padding: 18px;
-    }
-
-    .confirm__actions button {
-        width: 100%;
-        min-height: 48px;
-    }
-}
-
 /* ==========================================================================
    ADMIN PAGE
    Save this file next to your pages. admin.html links to it.
@@ -2872,32 +2884,6 @@ html {
     outline-offset: 3px;
 }
 
-@media (max-width: 480px) {
-    .auth__back {
-        top: 14px;
-        left: 16px;
-    }
-
-    .auth__hint,
-    .auth__caps,
-    .auth__strength,
-    .auth__rules {
-        margin-left: 12px;
-        margin-right: 12px;
-    }
-
-    .auth__meter {
-        margin-left: 12px;
-        margin-right: 12px;
-    }
-
-    .auth__homebtn {
-        width: calc(100% - 20px);
-        margin: 6px 10px 0;
-        padding: 14px 10px;
-    }
-}
-
 /* ==========================================================================
    LOG IN, SIGN UP AND RESET PAGES: extra elements
    Save this file next to your pages. Login.html, signup.html and reset.html link to it.
@@ -3073,24 +3059,4 @@ html {
 .sign__btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
-}
-
-@media (max-width: 480px) {
-    .auth__back {
-        top: 14px;
-        left: 16px;
-    }
-
-    .auth__hint,
-    .auth__caps,
-    .auth__strength,
-    .auth__rules {
-        margin-left: 12px;
-        margin-right: 12px;
-    }
-
-    .auth__meter {
-        margin-left: 12px;
-        margin-right: 12px;
-    }
 }
