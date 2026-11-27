@@ -2607,3 +2607,87 @@ html {
         min-height: 48px;
     }
 }
+
+/* ==========================================================================
+   ADMIN PAGE
+   Save this file next to your pages. admin.html links to it.
+   It reuses .dash, .dash__card and .plan__top from your other styles.
+   ========================================================================== */
+
+.admin__container {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 30px 40px;
+}
+
+.admin__card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.admin__note {
+    color: #b9b9b9;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.admin__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.admin__input,
+.admin__text {
+    padding: 10px 14px;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    background-color: #161616;
+    color: #ffffff;
+    font-size: 1rem;
+    caret-color: auto;
+}
+
+.admin__input {
+    width: 120px;
+}
+
+.admin__text {
+    width: 100%;
+    min-height: 90px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.admin__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.admin__message {
+    color: #b9b9b9;
+}
+
+@media (max-width: 600px) {
+    .admin__container {
+        padding: 16px 16px 32px;
+    }
+
+    .admin__row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin__input {
+        width: 100%;
+    }
+}
