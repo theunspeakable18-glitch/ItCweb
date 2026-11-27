@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="istyles.css">
+    <link rel="stylesheet" href="schedule-page-styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <script>
+        // hide the page until we know the visitor is an admin
+        document.documentElement.style.visibility = "hidden";
+    </script>
+</head>
+<body>
+
+    <script src="app.js"></script>
+    <script src="security.js"></script>
+    <script src="booking.js" defer></script>
+    <script src="admin.js" defer></script>
+
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a id="navbar__logo">GitGud</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="home.html" class="navbar__links">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="schedule.html" class="navbar__links">Schedule</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about_us.html" class="navbar__links">About Us</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="account.html" class="navbar__links">Account</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Admin page -->
+    <section class="dash">
+        <div class="plan__top">
+            <h1>Admin</h1>
+            <p>Changes here show up for every visitor.</p>
+        </div>
+
+        <div class="admin__container">
+
+            <!-- Coach prices -->
+            <div class="admin__card dash__card">
+                <h2>Coach prices</h2>
+                <p class="admin__note">Price per session, in pesos. These replace the default prices in booking.js.</p>
+                <div id="priceList"></div>
+                <div class="admin__actions">
+                    <button type="button" class="booking__btn" id="savePrices">Save prices</button>
+                    <span class="admin__message" id="priceMessage"></span>
+                </div>
+            </div>
+
+            <!-- Home page text -->
+            <div class="admin__card dash__card">
+                <h2>Home page text</h2>
+                <p class="admin__note">The line under "Welcome back" on the home page (up to 300 characters).</p>
+                <textarea class="admin__text" id="bannerInput" maxlength="300"></textarea>
+                <div class="admin__actions">
+                    <button type="button" class="booking__btn" id="saveBanner">Save text</button>
+                    <span class="admin__message" id="bannerMessage"></span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="frth">
+        <div class="frth__container">
+            <div class="frth__content">
+
+                <!-- Left: brand + tagline -->
+                <div class="frth__brand">
+                    <a class="frth__logo">GitGud</a>
+                    <p class="frth__tagline">Train smarter, you piece of trash</p>
+                </div>
+
+                <!-- Middle: contact info -->
+                <ul class="frth__menu">
+                    <li class="frth__itms">gitgudemail@gmail.com</li>
+                    <li class="frth__itms">Quezon City, Metro Manila</li>
+                    <li class="frth__itms">+63 969 157 6832</li>
+                </ul>
+
+                <!-- Right: social icons -->
+                <ul class="frth__socials">
+                    <li><a href="#" class="frth__social"><img src="icons/facebook.png" alt="Facebook"></a></li>
+                    <li><a href="#" class="frth__social"><img src="icons/instagram.png" alt="Instagram"></a></li>
+                    <li><a href="#" class="frth__social"><img src="icons/twitter.png" alt="Twitter"></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
