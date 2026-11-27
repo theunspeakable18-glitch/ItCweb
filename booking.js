@@ -114,8 +114,29 @@ function bookingErrorMessage(error) {
     return 'Could not save the booking (error ' + (error.code || 'unknown') + '). Press F12 and open the Console for details.';
 }
 
-// Runs once: load the booked slots from the database
-const ready = refreshBookings();
+// Prices the admin saved in the database replace the default prices written above
+async function loadPrices() {
+    try {
+        const { data, error } = await Security.client.from('trainer_prices').select('trainer_id, price');
+        if (error) throw error;
+
+        const prices = {};
+        data.forEach(r => { prices[r.trainer_id] = r.price; });
+
+        Object.values(TRAINERS).forEach(game => {
+            Object.values(game).forEach(list => {
+                list.forEach(t => {
+                    if (prices[t.id] !== undefined) t.price = prices[t.id];
+                });
+            });
+        });
+    } catch (e) {
+        console.error('Could not load prices (the default prices are used):', e);
+    }
+}
+
+// Runs once: load the booked slots and the prices from the database
+const ready = refreshBookings().then(loadPrices);
 
 // ---------- helpers ----------
 function toDateString(d) {
