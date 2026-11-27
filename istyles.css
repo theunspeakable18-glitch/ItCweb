@@ -2897,3 +2897,200 @@ html {
         padding: 14px 10px;
     }
 }
+
+/* ==========================================================================
+   LOG IN, SIGN UP AND RESET PAGES: extra elements
+   Save this file next to your pages. Login.html, signup.html and reset.html link to it.
+   Your look from istyles.css stays the same. This only adds the new bits.
+   ========================================================================== */
+
+.sign {
+    position: relative;
+}
+
+/* more content means the page can grow taller than before */
+.sign__container {
+    height: auto;
+    min-height: 110vh;
+}
+
+/* back link in the top left corner */
+.auth__back {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    z-index: 2;
+    color: #cfcfcf;
+    text-decoration: none;
+}
+
+.auth__back:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* line under the GitGud logo */
+.auth__tagline {
+    margin-top: 0.25rem;
+    text-align: center;
+    color: #b9b9b9;
+}
+
+/* Autofill: keep the red pill look instead of the browser's light blue box */
+.input__box input:-webkit-autofill,
+.input__box input:-webkit-autofill:hover,
+.input__box input:-webkit-autofill:focus,
+.input__box input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #c32323 inset;
+    box-shadow: 0 0 0 1000px #c32323 inset;
+    -webkit-text-fill-color: #ffffff;
+    caret-color: #ffffff;
+    border-radius: 40px;
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+/* same idea for Firefox */
+.input__box input:autofill {
+    box-shadow: 0 0 0 1000px #c32323 inset;
+    -webkit-text-fill-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Show / Hide button inside the password box */
+.input__box--pw {
+    position: relative;
+}
+
+.input__box--pw input {
+    padding-right: 64px;
+}
+
+.auth__eye {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 0.8rem;
+    text-decoration: underline;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.auth__eye:hover {
+    opacity: 1;
+}
+
+.auth__eye:focus-visible,
+.auth__back:focus-visible,
+.remember-forgot a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* small messages under the boxes */
+.auth__hint,
+.auth__caps,
+.auth__strength {
+    margin: 8px 25px 0;
+    font-size: 0.85rem;
+    color: #b9b9b9;
+}
+
+.auth__hint--bad {
+    color: #ff7b7b;
+}
+
+.auth__hint--ok {
+    color: #4dff88;
+}
+
+.auth__caps {
+    color: #ffb347;
+}
+
+.auth__caps[hidden] {
+    display: none;
+}
+
+/* password strength bar */
+.auth__meter {
+    height: 6px;
+    margin: 12px 25px 0;
+    background-color: #2a2a2a;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.auth__bar {
+    width: 0;
+    height: 100%;
+    background-color: #c32323;
+    transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+.auth__bar--0 { width: 8%; }
+.auth__bar--1 { width: 25%; }
+.auth__bar--2 { width: 50%; background-color: #ff8177; }
+.auth__bar--3 { width: 75%; background-color: #e0b341; }
+.auth__bar--4 { width: 100%; background-color: #4dff88; }
+
+/* password checklist */
+.auth__rules {
+    list-style: none;
+    display: grid;
+    gap: 4px;
+    margin: 10px 25px 0;
+    font-size: 0.85rem;
+    color: #b9b9b9;
+}
+
+.auth__rules li::before {
+    content: "\2022";
+    display: inline-block;
+    width: 1.3em;
+}
+
+.auth__rules li.met {
+    color: #4dff88;
+}
+
+.auth__rules li.met::before {
+    content: "\2713";
+}
+
+/* buttons */
+.sign__btn {
+    cursor: pointer;
+}
+
+.sign__btn:hover:not(:disabled) {
+    filter: brightness(1.1);
+}
+
+.sign__btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+    .auth__back {
+        top: 14px;
+        left: 16px;
+    }
+
+    .auth__hint,
+    .auth__caps,
+    .auth__strength,
+    .auth__rules {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .auth__meter {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+}
