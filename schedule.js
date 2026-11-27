@@ -129,3 +129,27 @@ function showHome() {
 }
 
 ready.then(showHome);
+
+// the home page text (editable by the admin) and the Admin link (only shown to admins)
+function showAdminThings() {
+    Security.client.from("site_settings").select("value").eq("key", "home_banner").maybeSingle().then(function (result) {
+        var box = document.getElementById("bannerText");
+        if (box && result.data && result.data.value) box.textContent = result.data.value;
+    });
+
+    Security.client.rpc("is_admin").then(function (result) {
+        var menu = document.querySelector(".navbar__menu");
+        if (result.data !== true || !menu) return;
+
+        var item = document.createElement("li");
+        var link = document.createElement("a");
+        item.className = "navbar__item";
+        link.href = "admin.html";
+        link.className = "navbar__links";
+        link.textContent = "Admin";
+        item.appendChild(link);
+        menu.appendChild(item);
+    });
+}
+
+ready.then(showAdminThings);
